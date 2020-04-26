@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    #field {
+    background-color: black;
+        height: 70vh;
+    }
+    
+    .border {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        border: 1px solid red;
+    }
+
+  .hexagon {
+    fill: none;
+    stroke: #ddd;
+    stroke-opacity: .4;
+    pointer-events: all;
+  }
+
+  .hexagon path {
+    -webkit-transition: fill 250ms linear;
+    transition: fill 250ms linear;
+  }
+
+  .hexagon :hover {
+    fill: #ddd;
+    opacity: .5;
+  }
+
+  .hexagon .fill {
+    fill: #666;
+    opacity: .5;
+  }
+  
+  .route, #arrow {
+    fill: none;
+    stroke: #08f7fe;
+    stroke-width: 3px;
+    stroke-opacity: .9;
+  }
+
+  .border {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+    pointer-events: none;
+  }
+  </style>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/roll-a-die@1.5.5/dist/roll-a-die.js"></script>
+  <script src="hex.js"></script>
+<head>
+
+<body>
+    <div class="border">
+        <div id="field"></div>
+    </div>
+
+<script>
+let div = document.getElementById('field')
+let width = div.offsetWidth;
+let height = div.offsetHeight;
+let size = 23;
+let layout = {orientation: layout_pointy, size: Point(size, size), origin: Point(Math.floor(width/2),Math.floor(height/2))};
+
+let svg = d3.select('#field').append('svg')
+      .attr('width', width)
+      .attr('height', height);
+      
+svg.append('defs')
+   .append('marker')
+     .attr('id', 'arrow')
+     .attr('markerUnits', 'userSpaceOnUse')
+     .attr('orient', 'auto')
+     .attr('markerHeight', '10')
+     .attr('markerWidth', '12')
+     .attr('refX', '11')
+     .attr('refY', '5')
+   .append('path')
+     .attr('d', d3.line()([[0, 0], [10, 5], [0, 10]]))
+;
+    
+let line = d3.line()
+    .x(d => d.x)
+    .y(d => d.y);
+
+let hex_width = Math.ceil(width / hex_col_width(layout));
+let hex_height = Math.ceil(height / hex_row_height(layout));
+
+let hexes = rect_map(hex_width, hex_height);
+
+let starColors = [
+    '#9db4ff',
+    '#a2b9ff',
+    '#a7bcff',
+    '#aabfff',
+    '#afc3ff',
+    '#baccff',
+    '#c0d1ff',
+    '#cad8ff',
+    '#e4e8ff',
+    '#edeeff',
+    '#fbf8ff',
+    '#fff9f9',
+    '#fff5ec',
+    '#fff4e8',
+    '#fff1df',
+    '#ffebd1',
+    '#ffd7ae',
+    '#ffc690',
+    '#ffbe7f',
+    '#ffbb7b',
+    '#ffbb7b'
+]; // from http://www.vendian.org/mncharity/dir3/starcolor/
+const starColorDist = 4;
+let starRand = d3.randomIrwinHall(starColorDist);
+    
+function starColor() {
+    return starColors[Math.floor(starRand() / starColorDist * starColors.length)];
+}
+
+let starSizeDist = d3.randomLogNormal(0.4, 0.2);
+
+let stars = [...new Array(200)].map(() => {
+    let x = Math.round(Math.random() * width);
+    let y = Math.round(Math.random() * height);
+    let size = Math.round(starSizeDist());
+    return {x:x, y: y, size: size};
+});
+
+svg.append('g')
+     .attr('class', 'starfield')
+   .selectAll('circle')
+     .data(stars)
+   .enter().append('circle')
+     .attr('cx', d => d.x)
+     .attr('cy', d => d.y)
+     .attr('r', d => d.size)
+     .attr('stroke', 'none')
+     .attr('fill', d => starColor());
+    
+svg.append('g')
+     .attr('class', 'hexagon')
+   .selectAll('path')
+     .data(hexes)
+   .enter().append('path')
+     .attr('d', d => line(line_corners(layout, d)))
+     .attr('class', JSON.stringify)
+     .on('mousedown', mousedown)
+     .on('mousemove', mousemove)
+     .on('mouseup', mouseup);
+
+svg.append('g')
+     .attr('class', 'route');
+
+let start = null;
+let routes = []
+
+function mousedown(d) {
+   start = d;
+}
+
+function mousemove(d) {
+  if ((start !== null) && (d != start)) {
+    routes.push([start, d]);
+    drawLine(routes);
+    routes.pop();
+  }
+  
+}
+
+function mouseup(d) {
+  if ((start !== null) && (d != start)) {
+    routes.push([start, d])
+  }
+  start = null;
+  drawLine(routes);
+}
+
+function drawLine(routes) {
+    let paths = svg.select('.route')
+                  .selectAll('path')
+                  .data(routes);
+    paths.exit().remove();
+    
+    paths.enter().append('path').merge(paths)
+         .attr('marker-end', 'url(#arrow)')
+         .attr('d', d => line(d.map(p => hex_to_pixel(layout, p))));
+}
+
+let ship = {
+position: {q:0, r:0, s:0},
+velocity: {q:0, r:0, s:0},
+fuel: 20
+}
+
+let turn = 1;
+
+
+
+</script>
+</body>
+</html>
