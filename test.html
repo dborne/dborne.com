@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <style>
+
+      .scroll {
+        color: white;
+        height: 3264px;
+      }
+      
+      #zoom {
+        overflow: hidden;
+      }
+      
+      #zoom img {
+        position: fixed;
+        left: 50%;
+        width: 1200%;
+        z-index: -1;
+      }
+      
+    </style>
+    <script>
+      let div;
+      let scale = 4;
+      
+      let imgX = 1836;
+      let imgY = 3264
+      
+      // handpicked to center the soundhole
+      let centerX = 874/imgX;
+      let centerY = 2090/imgY;
+      
+      function setup() {
+        let item = document.querySelector('#zoom img');
+        item.style.top =  -(item.height * centerY - window.innerHeight/2) + 'px';
+        item.style.left = -(item.width * centerX - window.innerWidth/2) + 'px';
+        window.addEventListener('resize', scroll);
+      }
+      
+      
+      function scroll() {
+        let pos = document.documentElement.scrollTop;
+        let maxpos = document.documentElement.scrollHeight - window.innerHeight;
+        div = (pos**scale / maxpos**scale) * 11 + 1;  //normalise to 1-12 since we're starting at 1200% width so we go down to 100% width
+      
+        let item = document.querySelector('#zoom img');
+        item.style.width = (1200/div) + '%';
+        item.style.top =  -(item.height * centerY - window.innerHeight/2) + 'px';
+        item.style.left = -(item.width * centerX - window.innerWidth/2) + 'px';
+      
+      
+      }
+    </script>
+  </head>
+  
+  <body onload="setup()" onscroll="scroll()">
+    <div id="zoom">
+      <img src="bg.jpg">
+    </div>
+    <div id="test" class="scroll">
+      Hello
+      
+      <p>Lorem ipsum dolor sit amet, suas ullum alterum usu at, iudico expetenda nam ea. Eos ipsum fugit perpetua te, vel officiis efficiendi cu. Nusquam intellegebat sed an. Vis omnis ridens et, vocibus suscipit vis ne. An pro augue apeirian dignissim, ex sit impetus legimus intellegam. Dicta malorum inermis nam ex.
+      </p>
+      <p>
+        An inermis abhorreant constituam mel, solet eruditi constituam at eum, numquam volutpat quo eu. Quo agam insolens ut. Ex clita causae quo, ad quo quodsi vivendo, ad vis modo liber erant. Dicam voluptatibus has ei, debet lobortis vis ea.
+      </p>
+      <p>
+        Illud adversarium pro ei, te sed persius quaerendum, alia vidit vim et. Ex alia nonumes mel, ad laoreet constituam mei, ad corpora facilisis vim. Amet adipisci torquatos ut vis, id feugiat officiis eam. Ei eam facer persius.
+      </p>
+      <p>
+        Quaeque volumus assentior te cum, at erat numquam erroribus mea. Ei his hinc maiestatis. Dicunt everti meliore no pri, est idque viderer honestatis eu. Sit suas gloriatur at. Possit vocibus efficiendi sit an, eu eam quaestio imperdiet dignissim.
+      </p>
+      <p>
+        Vix ex quis legere graecis, id ius paulo habemus. Cu sit debet quodsi commune, eos eros homero atomorum ex, usu nonumy scaevola no. Detraxit suavitate ei mel. Usu at tale vide dicunt, te sit iudico voluptua. Dolore consulatu necessitatibus eos eu. Cu purto wisi vituperata est.
+      </p>
+      <p>
+        Cu aeque primis sea, pro ea modo veritus, te dolores salutatus nec. Eam minim laboramus in, his te aperiri feugiat. Nihil copiosae quo in. Pro ne civibus mandamus concludaturque, cum et tota choro. Ludus audire duo ei, ex quo ullum utinam splendide, eam justo falli at.
+      </p>
+      <p>
+        Nibh commodo an vim. At vis vide dicat incorrupte, novum dicunt fierent te quo. His ea discere aliquid adversarium, detraxit deserunt an nam. Ad timeam aliquam gubergren duo. Rebum euripidis interesset cu mei, eam ubique eruditi id.
+      </p>
+      <p>
+        Sit error aliquid scribentur cu, ferri reformidans conclusionemque te usu, ei mei alii accusam gloriatur. Pri ei volutpat comprehensam, pri at audire interpretaris. Ad aperiam intellegam pri, clita impedit euripidis et sit. Id meis facilis qui.
+      </p>
+      <p>
+        Eu ipsum laudem mel, an vidisse concludaturque cum. Oratio virtute vivendo an vel, duo eu suas civibus expetendis. Cum possit vocibus consetetur id. Ad elit facilisis intellegat vim, per te imperdiet consectetuer.
+      </p>
+      <p>
+        Tale dissentiet cu sea. Ponderum tincidunt ei duo, at vix maiorum comprehensam. Aliquid civibus imperdiet in usu, mazim aeque postulant his ex. Nam no putant tibique, commune molestie perfecto eu sit. Atqui erroribus ne eum.
+      </p>
+      <p>
+        Solum conceptam no his, utroque mandamus disputando ea sea. Cu pro ullum dicunt latine. Ex causae instructior sea. Ex vim altera intellegam delicatissimi, magna fabellas et vix. Vim te brute legere assentior.
+      </p>
+      <p>
+        Cum causae accusam et, eam ei nusquam alienum luptatum, an timeam electram eam. Te alia elitr detracto eum. Ut labore salutandi pri, mel et iusto ponderum deseruisse. Eu eum sumo fugit atqui, eu nisl debitis expetenda has, est justo omittam id. An vis vero noster accusam, ut rebum impetus cum.
+      </p>
+      <p>
+        Electram scripserit instructior id ius. Nam ne dicat oblique sententiae, id eum altera dolores reformidans, at sit officiis recusabo. Singulis patrioque adversarium vis no, nec autem ceteros habemus te. At per regione ponderum intellegebat, ea solet utamur aliquam pro. Ius in probatus adipiscing signiferumque, duo noster platonem at.
+      </p>
+      <p>
+        Cu eam latine detraxit. Tollit disputationi concludaturque eam no, est possit semper ei. Et odio latine democritum his. Modus petentium disputationi vim ei, id vix minim harum ponderum, case meliore pri id. At vim meliore periculis prodesset. An sed saepe quaerendum, vivendo epicuri cu vel, eam modus gubergren ad.
+      </p>
+      <p>
+        At tale corrumpit complectitur est, prima iracundia per ad. Ex fugit commodo diceret vis, quo ut tantas pericula interesset. At nam congue animal gubergren. Eu vim appetere repudiare vituperata. In eam illud assentior signiferumque, pri at paulo utamur accommodare, vim graecis maluisset ne. Error partem pri ut.
+      </p>
+      <p>
+        Quo autem probatus theophrastus no, mel delenit molestie fabellas et, vis id nostrud dissentias. Id sea enim purto tation, ius et omnium verear deterruisset, iudicabit hendrerit interpretaris pro eu. Qui te integre convenire. Ea mel purto simul iuvaret, ei dicat virtute pertinax per.
+      </p>
+      <p>
+        Probo autem mollis duo at, lorem legendos no eam, ex usu ponderum argumentum. Has eu solet vivendum mandamus. Graeco scripserit eu usu, pri no tation persequeris, liber vituperata nec cu. Probo brute molestiae ius eu, an per congue doctus eloquentiam, ut eum elit aperiam forensibus. Et cibo fuisset persecuti has.
+      </p>
+      <p>
+        Ius ex quidam appellantur, habeo evertitur forensibus at duo. Mea constituto constituam at, timeam sensibus consequat usu cu. Sea ex atqui delectus, fuisset voluptua officiis his ad. Sea ex quot volutpat, altera audiam feugait no nec. Est te eros verear, qui ea appareat necessitatibus concludaturque. Discere dissentias id sit.
+      </p>
+      <p>
+        Feugiat graecis quaerendum his id, id case appareat quaestio eos, no pro debitis oporteat. Sit diam dolor utroque te, dictas perfecto an vis. Probatus consulatu definitionem vix in. Te nam debet altera voluptatibus, mea in elitr laoreet torquatos, vix melius salutandi theophrastus ei. Mei insolens gubergren id. Alterum tractatos vis ut, id dicunt verear vis.
+      </p>
+      <p>
+        Vim noluisse inimicus conceptam ei, fugit velit erant in sea. Ne persius habemus principes duo. Ad placerat adolescens expetendis pri, est no modo everti. Delectus facilisi repudiare eu eos.
+      </p>
+    </div>
+  </body>
+</html> 
