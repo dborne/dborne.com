@@ -16,41 +16,47 @@
         border: 1px solid red;
     }
 
-  .hexagon {
-    fill: none;
-    stroke: #ddd;
-    stroke-opacity: .4;
-    pointer-events: all;
-  }
-
-  .hexagon path {
-    -webkit-transition: fill 250ms linear;
-    transition: fill 250ms linear;
-  }
-
-  .hexagon :hover {
-    fill: #ddd;
-    opacity: .5;
-  }
-
-  .hexagon .fill {
-    fill: #666;
-    opacity: .5;
-  }
+    .gravity {
+        fill: #000;
+        stroke:#fff;
+        stroke-width:0.05;
+    }
   
-  .route, #arrow {
-    fill: none;
-    stroke: #08f7fe;
-    stroke-width: 3px;
-    stroke-opacity: .9;
-  }
+    .hexagon {
+        fill: none;
+        stroke: #ddd;
+        stroke-opacity: .4;
+        pointer-events: all;
+    }
 
-  .border {
-    fill: none;
-    stroke: #000;
-    stroke-width: 2px;
-    pointer-events: none;
-  }
+    .hexagon path {
+        -webkit-transition: fill 250ms linear;
+        transition: fill 250ms linear;
+    }
+
+    .hexagon :hover {
+        fill: #ddd;
+        opacity: .5;
+    }
+
+    .hexagon .fill {
+        fill: #666;
+        opacity: .5;
+    }
+  
+    .route, #arrow {  
+        fill: none;
+        stroke: #08f7fe;
+        stroke-width: 3px;
+        stroke-opacity: .9;
+    }
+
+    .border {
+        fill: none;
+        stroke: #000;
+        stroke-width: 2px;
+        pointer-events: none;
+    }
   </style>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -86,7 +92,12 @@ svg.append('defs')
    .append('path')
      .attr('d', d3.line()([[0, 0], [10, 5], [0, 10]]))
 ;
-    
+
+svg.select('defs')
+   .append('path')
+      .attr('id', 'gravityArrow')
+      .attr('d', 'M0.75 0L0.3 -0.27L0.3 -0.15L0.10 -0.15L0.10 0.15L0.3 0.15L0.3 0.27L0.75 0')
+  
 let line = d3.line()
     .x(d => d.x)
     .y(d => d.y);
@@ -156,6 +167,46 @@ svg.append('g')
      .on('mousedown', mousedown)
      .on('mousemove', mousemove)
      .on('mouseup', mouseup);
+     
+svg.append('g')
+     .attr('class', 'gravity');
+
+/*
+translate to center of hex, arrow points right by default, scales with hex side length
+<use href="#gravityArrow" style="fill:#000;stroke:#fff;stroke-width:0.05" transform="
+                  translate(102.3 119)
+                  rotate(30)
+                  scale(23)
+                  "></use>
+*/
+function drawGravityArrows(gravityMap) {
+    let grav = svg.select('.gravity')
+        .selectAll('use')
+        .data(Object.keys(gravityMap).map(eval)); // I know, I know. I'm lazy - so sue me.
+       
+    grav.exit().remove()
+       
+    grav.enter().append('use').merge(grav)
+        .attr('href', '#gravityArrow')
+        .attr('transform', d => {
+        console.log(d);
+            let res = [];
+            res.push('translate(');
+            let point = hex_to_pixel(layout, d);
+            res.push(point.x);
+            res.push(point.y);
+            res.push(') rotate(');
+            let hex_dir = gravityMap[d.toString()];
+            let dir_index = hex_directions.findIndex(e => hex_distance(e, hex_dir) == 0);
+            res.push(dir_index * 60);
+            res.push(') scale(');
+            res.push(layout.size.x);
+            res.push(')');
+            
+            return res.join(' ');
+        })
+ 
+}
 
 svg.append('g')
      .attr('class', 'route');
@@ -164,46 +215,132 @@ let start = null;
 let routes = []
 
 function mousedown(d) {
-   start = d;
+    if (hex_distance(ship.predictedPos, d) <= 1){
+        start = d;
+    }
 }
 
 function mousemove(d) {
-  if ((start !== null) && (d != start)) {
-    routes.push([start, d]);
-    drawLine(routes);
-    routes.pop();
-  }
+//  if ((start !== null) && (d != start)) {
+//    routes.push([start, d]);
+//    drawLine(routes);
+//    routes.pop();
+//  }
   
 }
 
 function mouseup(d) {
-  if ((start !== null) && (d != start)) {
-    routes.push([start, d])
+  if ((start !== null) && (d == start)) {
+    ship.acceleration = hex_subtract(d, ship.predictedPos);
   }
   start = null;
-  drawLine(routes);
+  plotPredicted(ship);
 }
 
-function drawLine(routes) {
-    let paths = svg.select('.route')
-                  .selectAll('path')
-                  .data(routes);
-    paths.exit().remove();
+function drawShipRoute(ship) {
+    let path = svg.select('.route')
+                  .selectAll(`path.${ship.id}`)
+                  .data(ship.route);
+    path.exit().remove();
     
-    paths.enter().append('path').merge(paths)
+    path.enter().append('path').merge(path)
+         .attr('class', ship.id)
          .attr('marker-end', 'url(#arrow)')
          .attr('d', d => line(d.map(p => hex_to_pixel(layout, p))));
 }
 
-let ship = {
-position: {q:0, r:0, s:0},
-velocity: {q:0, r:0, s:0},
-fuel: 20
+function plotPredicted(ship) {
+    let data = [];
+    if (hex_distance(ship.position, newpos) > 0){
+        data.push([ship.position, newpos]);
+    }
+    if (hex_length(ship.acceleration) > 0) {
+        data.push([ship.predictedPos, hex_add(ship.predictedPos, ship.acceleration)]);
+    }
+    let predicted = svg.select('.route')
+        .selectAll('path.predicted')
+        .data(data);
+       
+    predicted.exit().remove()
+       
+    predicted.enter().append('path').merge(predicted)
+        .attr('marker-end', 'url(#arrow)')
+        .attr('stroke-dasharray', '10,10')
+        .attr('class', 'predicted')
+        .attr('d', d=> line(d.map(p => hex_to_pixel(layout, p))));
 }
 
+let ship = {
+    id: 'test',
+    position: Hex(0,0,0),
+    velocity: Hex(0,0,0),
+    predictedPos: Hex(0,0,0),
+    acceleration: Hex(0,0,0),
+    route: [],
+    fuel: 20,
+    fuelCapacity: 20,
+    gravity: [],
+    cargo: 5,
+    str: 2,
+    type: 'Corvette'
+}
+
+let gravityMap = {};
+let hex0 = Hex(0,0,0);
+//hex_directions.map(hex => {gravityMap[hex] = hex_subtract(hex0, hex)});
+
 let turn = 1;
+let newpos;
 
 
+function astrogationPhase() {
+    newpos = hex_add(ship.position, ship.velocity);
+    
+    if (ship.gravity.length > 0) {
+        newpos = ship.gravity.reduce(hex_add, newpos);
+    }
+    
+    ship.predictedPos = newpos;
+    plotPredicted(ship);
+    
+    //todo: overload maneuver
+}
+
+function ordinancePhase() {
+    //todo
+}
+
+function movementPhase() {
+    let newpos = hex_add(ship.predictedPos, ship.acceleration);
+    ship.velocity = hex_add(ship.velocity, ship.acceleration);
+    ship.fuel -= hex_length(ship.acceleration);
+    ship.acceleration = Hex(0,0,0);
+    ship.route.push([ship.position, newpos]);
+    drawShipRoute(ship);
+    let hexesTraversed = hex_linedraw(ship.position, newpos);
+    ship.gravity = hexesTraversed.slice(1)
+        .filter(hex => hex.toString() in gravityMap)
+        .map(hex => gravityMap[hex.toString()]);
+    ship.position = newpos;
+    newpos = null;
+    
+    //todo: move this out to a better place
+    svg.select('.route')
+        .selectAll('path.predicted')
+        .data([])
+       .exit().remove();
+    
+    //todo: collision check for astral bodies
+    //todo: landing
+}
+
+function combatPhase() {
+    //todo
+}
+
+function resupplyPhase() {
+    //todo
+}
 
 </script>
 </body>

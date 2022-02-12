@@ -4,7 +4,7 @@ function Point(x, y) {
 
 function Hex(q, r, s) {
     if (Math.round(q + r + s) !== 0) throw "q + r + s must be 0";
-    return {q: q, r: r, s: s};
+    return { q: q, r: r, s: s, toString: () => 'Hex(' + q + ',' + r + ',' + s + ')'};
 }
 
 function hex_add(a, b)
@@ -32,7 +32,7 @@ function hex_rotate_right(a)
     return Hex(-a.r, -a.s, -a.q);
 }
 
-var hex_directions = [Hex(1, 0, -1), Hex(1, -1, 0), Hex(0, -1, 1), Hex(-1, 0, 1), Hex(-1, 1, 0), Hex(0, 1, -1)];
+var hex_directions = [Hex(1, 0, -1), Hex(0, 1, -1), Hex(-1, 1, 0), Hex(-1, 0, 1), Hex(0, -1, 1), Hex(1, -1, 0)];
 function hex_direction(direction)
 {
     return hex_directions[direction];
