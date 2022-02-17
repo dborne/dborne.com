@@ -1,0 +1,30 @@
+body {
+    font-family: 'Bangers', cursive;
+    font-size: 30px;
+}
+
+#disp {
+    padding: 5px, 20px;
+    text-align: center;
+    color: #026;
+}
+
+#disp button {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+#patter {
+    width: 100%;
+    text-align: center;
+    color: #b22;
+    margin-top: 10%;
+}
+
+#weapon_name {
+    font-family: 'Miltonian', cursive;
+    padding: 10px;
+    display: inline-block;
+    width: auto;
+    border: 3px dashed #ccc;
+}

@@ -1,0 +1,36 @@
+ <!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Weapon Name Generator</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" type="text/css" href="weapon.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Miltonian&display=swap" rel="stylesheet"> 
+    </head>
+    
+    <body onLoad="userAction()">
+        <div id="patter">
+            <p> Are you tired of referring to your +1 sword as "My +1 sword"?</p>
+            <p> Would you like to have an impressive and imposing naame for your shiny new magical weapon?</p>
+            <p> Well look no further. Press this shiny button for new and amazing weapon names now!</p>
+        </div>
+        <div id="disp">
+            <button onclick="userAction()"> Get an Awesome Weapon Name!</button>
+            <div>
+            <div id="weapon_name"></div>
+            </div>
+        </div>
+        <script>
+            const userAction = async() => {
+                const resp = await fetch('https://api.dborne.com/weapon/namegen/');
+                const name = await resp.json();
+                const elem = document.querySelector('#weapon_name');
+                elem.innerText = name;
+            }
+    
+        </script>
+    </body>
+</html>
