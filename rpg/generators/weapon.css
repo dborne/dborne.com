@@ -21,8 +21,8 @@ body {
     box-shadow: 0 -2px 0 3px #c91919 inset, 0 5px 5px rgba(65, 8, 8, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset;
     cursor: pointer;
     display: inline-block;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
 }
 
 .btn-red:hover {
@@ -39,7 +39,7 @@ body {
 #disp button {
     margin-bottom: 20px;
     font-family: 'Bangers', cursive;
-    font-size: 20px;
+    font-size: 50px;
     color: #eee;
 }
 
