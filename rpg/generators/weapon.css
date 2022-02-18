@@ -52,6 +52,7 @@ body {
 
 #weapon_name {
     font-family: 'Miltonian', cursive;
+    font-size: 40px;
     padding: 10px;
     display: inline-block;
     width: auto;
