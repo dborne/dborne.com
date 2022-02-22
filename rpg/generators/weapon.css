@@ -2,6 +2,7 @@
 body {
     font-family: 'Bangers', cursive;
     font-size: 30px;
+    background-color: #FAF4E3;
 }
 
 .btn-blue {
@@ -41,6 +42,31 @@ body {
     font-family: 'Bangers', cursive;
     font-size: 50px;
     color: #eee;
+}
+
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3vh;
+    width: 100%;
+    text-align: center;
+    font-size: 3vh;
+    padding: 1vh 0;
+    color: #FAF4E3;
+    background-color: #808065;
+}
+
+#footer a {
+    text-decoration: none;
+}
+
+#footer a:visited {
+    color: #FAF4E3;
+}
+
+#footer a:hover {
+    color: #FAC4B3;
 }
 
 #patter {
