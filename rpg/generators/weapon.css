@@ -57,8 +57,9 @@ body {
     background-color: #808065;
 }
 
-#footer a {
+#footer a:link {
     text-decoration: none;
+    color: #FAF4E3;
 }
 
 #footer a:visited {
