@@ -28,7 +28,7 @@
         </div>
         <script>
             const userAction = async() => {
-                const resp = await fetch('https://api.dborne.com/weapon/namegen/weapon');
+                const resp = await fetch('https://api.dborne.com/rpg/generator/weapon');
                 const name = await resp.json();
                 const elem = document.querySelector('#weapon_name');
                 elem.innerText = name;
