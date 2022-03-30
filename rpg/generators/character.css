@@ -1,0 +1,699 @@
+
+#abilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 1.422vw;
+}
+
+.ability {
+    position: relative;
+}
+
+.ability label {
+    position: absolute;
+    top: 0.142vw;
+    font-size: 1.280vw;
+    text-align: center;
+    width: 100%;
+}
+
+.ability input[type=text]{
+    height: 7.822vw;
+    width: 8.533vw;
+    box-sizing: border-box;
+    border-radius: 1.422vw;
+    border: 0.213vw solid black;
+    text-align: center;
+    font-size: 4.267vw;
+}
+
+.ability input[type=text].inset {
+    height: 33%;
+    width: 50%;
+    font-size: 1.564vw;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -12%;
+    left: 25%;
+}
+
+#acblock {
+    position: relative;
+    display: inline-block;
+}
+
+#acblock input#ac[type=text] {
+    border: none;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+}
+
+#gear>div {
+    margin: 0 0.711vw 0 1.422vw;   
+}
+
+#attackblock{
+    padding: 0.711vw 0.711vw 0 0.711vw;
+    border: 0.213vw solid black;
+    border-radius: 2.133vw;
+}   
+
+#attackblock span {
+    display: inline-block;
+    width: 20%;
+    font-size: 0.924vw;
+    box-sizing: border-box;
+    color: #888;
+    margin: 0 0.356vw;
+    flex: 1;
+}
+
+#attackblock span.name {
+    flex: 4;
+}
+
+#attackblock div.attack_flex {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-between;
+}
+
+#attackblock .attack input {
+    background-color: #ccc;
+    color: black;
+    text-align: center;
+    font-size: 2.133vw;
+    padding: 0;
+    border: none;
+    flex: 1;
+    width: 20%;
+    margin: 0 0.356vw;
+}
+
+#attackblock input.desc {
+    font-size: 1.2vw;
+    margin: .3vw 0.35vw 1vw 0.35vw;
+    background-color: #eee;
+    width: 100%;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    text-align: left;
+}
+
+#attackblock input.name {
+    flex: 4;
+}
+
+#attackblock label {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 1.422vw;
+}
+
+body {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 0;
+    background-color: #FFFDFA;
+}
+
+#charsheet_5e {
+    height: 71.111vw;
+    width: 96.000vw;
+}
+
+.checkbox-holder {
+    position: relative;
+    top: 0.427vw;
+}
+
+#combat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 1.422vw;
+    width: 28.444vw;
+}
+
+#deathsave {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border-radius: 2.133vw;
+    border: 0.213vw solid black;
+    background-color: transparent;
+    font-size: 0;
+    width: 45%;
+    height: 8.533vw;
+    padding: 0.356vw;
+}
+
+#deathsave>label {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.422vw;
+    text-align: center;
+}
+
+.deathboxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.deathboxes label  {
+    position: relative;
+    font-size: 1.422vw;
+    width: 5.689vw;
+}
+
+.deathboxes label::after  {
+    content: "";
+    position: absolute;
+    right: -4.5vw;
+    top: 45%;
+    width: 3.058vw;
+    height: 0.213vw;
+    background: gray;
+}
+
+#description {
+    position: relative;
+    border: 0.213vw solid black;
+    border-radius: 2.133vw;
+    height: 14.222vw;
+    
+}
+
+#description label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.422vw;
+}
+
+#description textarea {
+    font-family: 'Shalimar', cursive;
+    font-size: 2.489vw;
+    padding: 0.853vw;
+    box-sizing: border-box;
+    resize: none;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+#description textarea:focus {
+    outline: none;
+}
+
+.dsave {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 1.067vw;
+    height: 1.067vw;
+    margin: 0;
+}
+
+.dsave-cover {
+    position: relative;
+    display: inline-block;
+    height: 0.711vw;
+    width: 0.711vw;
+    background-color: white;
+    border-radius: 50%;
+    border: 0.142vw solid black;
+    top: 0;
+    left: 0;
+}
+
+.dsave:checked ~ .dsave-cover {
+    background-color: #444;
+    box-shadow: 0 0 .2vw .2vw rgba(255, 255, 255, .8) inset;
+    opacity: 1;
+}
+
+#gear {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+#gearblock {
+    padding: 0.711vw;
+    border: 0.213vw solid black;
+    border-radius: 2.133vw;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+#gearblock label {
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.422vw;
+    margin-top: 0.711vw;
+}
+
+.gearlist {
+    margin-bottom: 1.422vw;
+}
+
+.gearlist .gear_underline  {
+    position: relative;
+}
+
+.gearlist input {
+    font-size: 2.133vw;
+    background-color: transparent;    
+
+}
+
+.gearlist .gear_underline::after{
+    content: "";
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 0.142vw;
+    left: 0;
+    bottom: 0.711vw;
+    background: black;
+    z-index: -1;
+}
+
+.grey {
+    color: #99a;
+}
+
+#hd {
+    width: 45%;
+    height: auto;
+    position: relative;
+}
+
+#hd label[for=hdtotal] {
+    position: absolute;
+    top: 0;
+    left: 1.422vw;
+    font-size: 1.4vw;
+}
+
+#hd label[for=hdcurr] {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4vw;
+}
+
+#hdblock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+#hdcurr {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border-radius: 2.133vw;
+    border: 0.213vw solid black;
+    background-color: transparent;
+    text-align: center;
+    font-size: 2.844vw;
+    width: 100%;
+    height: 8.533vw;
+}
+
+#hdtotal {
+    position: absolute;
+    right: 0.711vw;
+    top: 0;
+    border: none;
+    padding: 0;
+    width: 3.556vw;
+    font-size: 2.133vw;
+    z-index: 1;
+    background: transparent;
+}
+
+.hp {
+    position: relative;
+    margin-bottom: 1vw;
+}
+
+#hpblock {
+    position: relative;
+    display: inline-block;    
+}
+
+#hpcurr {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    border-radius: 3.556vw 3.556vw 0 0;
+    border: 0.213vw solid black;
+    background-color: transparent;
+    text-align: center;
+    font-size: 8.533vw;
+    width: 100%;
+    padding: 3.556vw;
+}
+
+.hp label[for=hpcurr] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 2.844vw;   
+}
+
+#hpmax {
+    border: 0.142vw solid black;
+    border-radius: 0 3.556vw 0 0;
+    font-size: 4.267vw;
+    width: 7.111vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    text-align: center;
+    z-index: 10;
+}
+
+#hptemp {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 3.556vw 3.556vw;
+    border: 0.213vw solid black;
+    background-color: transparent;
+    text-align: center;
+    font-size: 6.400vw;
+    width: 100%;
+    padding: 1.422vw 3.556vw;
+}
+
+.hp label[for=hptemp] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 2.133vw;   
+}
+
+.hp label[for=hpmax] {
+    position: absolute;
+    top: 3.556vw;
+    right: 1.778vw;
+    font-size: 1.422vw;
+}
+
+input[type=text] {
+    font-family: 'Shalimar', cursive;
+    border: none;
+    padding: 0;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+#money {
+    position: relative;
+    left: -2vw;
+}
+
+#money .coin_box {
+    position: relative;
+    margin: .3vw;
+}
+
+#money .coin_box input {
+    margin-left: 1.636vw;
+    font-size: 1.778vw;
+    width: 4.978vw;
+    border: 0.1vw solid black;
+    background: white;
+    z-index: 10;
+    position: relative;
+    height: 2.5vw;
+    border-radius: 0.711vw;
+    padding: 0.1vw;
+    text-align: center;
+}
+
+#money .coin_box label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1.778vw;
+    border: 0.1vw solid black;
+    border-radius: 50% 0 0 50%;
+    margin: 0;
+    height: 1.778vw;
+    transform: translate(0, -50%);
+    background-color: white;
+    font-size: 1.2vw;
+}
+
+#name_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.422vw;
+}
+
+#name_block span{
+    position: relative;
+    box-sizing: border-box;
+}
+
+#name_block span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 1.778vw;
+    width: 29.867vw;
+    height: 0.213vw;
+    background: black;
+}
+
+#name_block input[type=text] {
+    border: none;
+    font-size: 4.764vw;
+    width: 32.000vw;
+    box-sizing: border-box;
+}
+
+#name_block label {
+    position: absolute;
+    top: 3.911vw;
+    left: 0.213vw;
+    font-size: 1.707vw;
+}
+
+#proficiency {
+    margin-bottom: 1.067vw;
+    position: relative;
+}
+
+#proficiency input[type=text]{
+    position: relative;
+    width: 3.556vw;
+    height: 3.556vw;
+    border: 0.213vw solid black;
+    border-radius: 50%;
+    font-size: 2.418vw;
+    text-align: center;
+    z-index: 10;
+}
+
+#proficiency label {
+    position: absolute;
+    right: 0;
+    border: 0.213vw solid black;
+    border-radius: 0 0.711vw 0.711vw 0;
+    font-size: 1.422vw;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding: 0.427vw 3.769vw;
+}
+
+.prof {
+    position: absolute;
+    opacity: 0;
+    top: .25vw;
+    left: -.25vw;
+    z-index: 10;
+    width: 1vw;
+    height: 1vw;
+}
+
+.proficiency-cover {
+    position: relative;
+    display: inline-block;
+    height: 1vw;
+    width: 1vw;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 0.142vw solid black;
+    top: 0.1vw;
+}
+
+.prof:checked ~ .proficiency-cover {
+    background-color: #444;
+    box-shadow: 0 0 .23vw .23vw rgba(255, 255, 255, .8) inset;
+    opacity: 1;
+}
+
+#shield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 8.178vw;
+    height: 9.244vw;
+}
+
+#shield svg {
+    position: relative;
+    z-index: 0;
+    width: 8.178vw;
+    height: 9.244vw;
+    top: -0.711vw;
+}
+
+.skill {
+    position: relative;
+}
+
+.skill input[type=text].skillbox {
+    width: 17%;
+    border: none;
+    font-size: 1.849vw;
+    position: relative;
+    text-align: center;
+}
+
+.skill input[type=text].skillbox::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4.978vw;
+    left: 7%;
+    bottom: 2.133vw;
+    background: black;
+    z-index: -1;
+}
+
+.skill label {
+    font-size: 1.422vw;
+    position: relative;
+    display: inline-block;
+}
+
+.skill label::before {
+    content: "";
+    position: absolute;
+    left: -2.844vw;
+    bottom: 0.000vw;
+    width: 2.133vw;
+    height: 0.142vw;
+    background: black;
+}
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 1.422vw;
+}
+
+#skill_label {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 1.4vw;
+    margin-top: 2%;
+}
+
+.skill_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0.356vw 0.711vw 0 1.067vw;
+    border: 0.213vw solid black;
+    border-radius: 2.133vw;
+    font-size: 0;
+    width: 18.489vw;
+    height: 100%;
+}
+
+#stats_block{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60.444vw;
+}
+
+#topstats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#topstats input[type=text] {
+    height: 7.822vw;
+    width: 8.533vw;
+    box-sizing: border-box;
+    border-radius: 2.133vw;
+    border: 0.213vw solid black;
+    text-align: center;
+    font-size: 5.689vw;
+}
+
+#topstats span label {
+    position: absolute;
+    bottom: -2.133vw;
+    left: 0;
+    font-size: 1.2vw;
+    text-align: center;
+    width: 100%;
+    line-height: 1.5vw;
+}
+
+#topstats>span {
+    position: relative;
+}
+

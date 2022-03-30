@@ -1,0 +1,212 @@
+ <!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Villager Generator</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" media="screen" href="character.css">
+  <link rel="stylesheet" type="text/css" media="print" href="character-print.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Shalimar&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+
+<body>
+    <div ng-app="charsheet" ng-controller="charsheet_control" id="charsheet_5e">
+        <div id="name_block">
+            <span>
+                <label for="name">name</label>
+                <input type="text" id="name" ng-model="char.name">
+            </span>
+            <span>
+                <label for="race">race</label>
+                <input type="text" id="race" ng-model="char.race"> 
+            </span>
+            <span>
+                <label for="class">class</label>
+                <input type="text" id="class" ng-model="char.job">
+            </span>
+        </div>
+        <div id="stats_block">
+            <span id="abilities">
+                <div class="ability" ng-repeat="(attrib, val) in char.abilities">
+                    <label for="{{attrib}}">{{ability_names[attrib]}}</label>
+                    <input type="text" id="{{attrib}}" class="inset" ng-model="char.abilities[attrib]['val']">
+                    <input type="text" id="{{attrib}}-mod" ng-model="char.abilities[attrib]['modstr']">
+                </div>
+            </span>
+            <span id="skills">
+                <div id="proficiency">
+                    <input type="text" id="proficiency_bonus" ng_model="char.proficiency_bonus['valstr']">
+                    <label for="proficiency_bonus">proficiency bonus</label>
+                </div>
+                <div class="skill_list">
+                    <div class="skill" ng-repeat="skill in skills | orderBy">
+                        <input type="checkbox" class="prof" ng-model="char.skills[skill]['prof']">
+                        <span class="proficiency-cover"></span>
+                        <input type="text" class="skillbox" id="{{skill}}" ng-model="char.skills[skill]['valstr']">
+                        <label for="{{skill}}">{{skill}} <span class="grey">({{char.skills[skill]['ability']}})</span></label>
+                    </div>
+                    <span id="skill_label">skills</span>
+                </div>
+            </span>
+            <span id="combat">
+                <div id="topstats">
+                    <span id="acblock">
+                        <span id="shield">
+                        <svg width="68.09745" height="80.000008" viewBox="0 0 18.01745 21.166669" >
+                            <path
+                                style="color:#000000;fill:none;stroke:#000000;stroke-width:0.26458332;"
+                                d="m 15.317336,2.1605376 c 0.373114,1.7473615 1.161091,3.1057885 2.541419,3.908887 V 10.736915 C 15.506331,17.702453 12.289212,19.53747 8.9945553,20.996499 5.6998989,19.53747 2.4827799,17.702453 0.13035566,10.736915 V 6.0694246 C 1.5106839,5.2663261 2.2986609,3.9078991 2.6717749,2.1605376 L 8.9945553,0.16643662 Z m -0.874559,0.9794061 c 0.387803,1.7657213 1.127621,3.0137012 2.328882,3.5829959 V 10.483601 C 15.429471,14.911714 12.870686,18.031985 8.9945553,19.751342 5.1184249,18.031985 2.5596399,14.911714 1.2174519,10.483601 V 6.7229396 C 2.4187129,6.1536449 3.1585309,4.905665 3.5463339,3.1399437 L 8.9945553,1.4133256 Z"
+                            />
+                        </svg>
+                        </span>
+                        <input type="text" id="ac" ng-model="char.ac">
+                        <label for="ac">armor class</label>
+                    </span>
+                    <span id="initblock">
+                        <input type="text" id="init" ng-model="char.initiative">
+                        <label for="init">initiative</label>
+                    </span>
+                    <span id="speedblock">
+                        <input type="text" id="speed" ng-model="char.speed">
+                        <label for="speed">speed</label>
+                    </span>
+                </div>
+                <div id="hpblock">
+                    <div class="hp">
+                        <input id="hpmax" type="text" ng-model="char.hit_points">
+                        <label for="hpmax">max hp</label>
+                        <input id="hpcurr" type="text">
+                        <label for="hpcurr">current hit points</label>
+                    </div>
+                    <div class="hp">
+                        <input type="text" id="hptemp">
+                        <label for="hptemp">temporary hit points</label>
+                    </div>
+                </div>
+                <div id="hdblock">
+                    <span id="hd">
+                        <input id="hdtotal" type="text" ng-model="char.hit_dice">
+                        <label for="hdtotal">total</label>
+                        <input id="hdcurr" type="text">
+                        <label for="hdcurr">hit dice</label>
+                    </span>
+                    <span id="deathsave">
+                        <span class="deathboxes">
+                            <label>successes</label>
+                            <span class="checkbox-holder">
+                                <input type="checkbox" class="dsave">
+                                <span class="dsave-cover"></span>
+                            </span>
+                            <span class="checkbox-holder">
+                                <input type="checkbox" class="dsave">
+                                <span class="dsave-cover"></span>
+                            </span>
+                            <span class="checkbox-holder">
+                                <input type="checkbox" class="dsave">
+                                <span class="dsave-cover"></span>
+                            </span>
+                        </span>
+                        <span class="deathboxes">
+                            <label>failures</label>
+                            <span class="checkbox-holder">
+                                <input type="checkbox" class="dsave">
+                                <span class="dsave-cover"></span>
+                            </span>
+                            <span class="checkbox-holder">
+                                <input type="checkbox" class="dsave">
+                                <span class="dsave-cover"></span>
+                            </span>
+                            <span class="checkbox-holder">
+                                <input type="checkbox" class="dsave">
+                                <span class="dsave-cover"></span>
+                            </span>
+                        </span>
+                        <label>death saves</label>
+                    </span>
+                </div>
+            </span>
+            <span id="gear">
+                <div id="attackblock">
+                    <div class="attack_labels">
+                        <div class="attack_flex">
+                            <span class="name">name</span>
+                            <span>atk bonus</span>
+                            <span>damage</span>
+                        </div>
+                    </div>
+                    <div class="attack" ng-repeat="attack in char.attacks">
+                        <div class="attack_flex">
+                            <!-- <span class="name">{{attack.name}}</span> -->
+                            <input class="name" type="text" ng-model="attack.name">
+                            <input type="text" ng-model="attack.atk_bonus">
+                            <input type="text" ng-model="attack.damage">
+                        </div>
+                        <input class="desc" type="text" ng-model="attack.properties">
+                    </div>
+                    <label>attacks &amp; spellcasting</label>
+                </div>
+                <div id="gearblock">
+                    <span id="money">
+                        <div class="coin_box" ng-repeat="coin_type in coin_order">
+                            <input type="text" id="{{coin_type}}" ng-model="char.money[coin_type]">
+                            <label for="{{coin_type}}">{{coin_type}}</label>
+                        </div>
+                    </span>
+                    <span class="gearlist">
+                        <span class="gear_underline" ng-repeat="gear in char.gear track by $index">
+                            <input type="text"  ng-model="gear">
+                        </span>
+                    </span>
+                    <label>equpment</label>
+                </div>
+                <div id="description">
+                    <textarea ng-model="char.description"></textarea>
+                    <label>description</label>
+                </div>
+            </span>
+        </div>
+    </div>
+  <script>
+    let app = angular.module('charsheet', []);
+    app.controller('charsheet_control', function($scope, $http) {
+        $http.get('https://api.dborne.com/rpg/generator/character')
+        .then(function(response){
+            console.log(response.data);
+            $scope.char = response.data;
+            $scope.skills = Object.keys($scope.char.skills);
+            for (let x = $scope.char.attacks.length; x < 4; x++) {
+                $scope.char.attacks.push({name: '', atk_bonus: '', damage: '', properites: ''});
+            }
+            console.log($scope.char.gear);
+            for (x = $scope.char.gear.length; x < 5; x++) {
+                $scope.char.gear.push(' ');
+            }
+            $scope.char.description = $scope.char.name + ' is ' + $scope.char.description;
+            console.log($scope.char.gear);
+        });
+        
+        $scope.ability_names = {
+            'str': 'strength',
+            'dex': 'dexterity',
+            'con': 'constitution',
+            'int': 'intelligence',
+            'wis': 'wisdom',
+            'cha': 'charisma'
+        };
+        
+        $scope.coin_order = [
+            'cp',
+            'sp',
+            'ep',
+            'gp',
+            'pp'
+        ];
+        
+    });
+  </script>
+</body>
+</html>

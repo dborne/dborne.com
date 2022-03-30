@@ -1,0 +1,726 @@
+
+#abilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2mm;
+}
+
+.ability {
+    position: relative;
+}
+
+.ability label {
+    position: absolute;
+    top: 0.2mm;
+    font-size: 1.8mm;
+    text-align: center;
+    width: 100%;
+}
+
+.ability input[type=text]{
+    height: 11mm;
+    width: 12mm;
+    box-sizing: border-box;
+    border-radius: 2mm;
+    border: 0.3mm solid black;
+    text-align: center;
+    font-size: 6mm;
+}
+
+.ability input[type=text]:focus {
+    outline: none;
+}
+
+.ability input[type=text].inset {
+    height: 33%;
+    width: 50%;
+    font-size: 2.2mm;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -12%;
+    left: 25%;
+}
+
+#acblock {
+    position: relative;
+    display: inline-block;
+}
+
+#acblock input#ac[type=text] {
+    border: none;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+}
+
+#gear>div {
+    margin: 0 1mm 0 2mm;   
+}
+
+#attackblock{
+    padding: 1mm 1mm 0 1mm;
+    border: .3mm solid black;
+    border-radius: 3mm;
+}   
+
+#attackblock span {
+    display: inline-block;
+    width: 20%;
+    font-size: 1.3mm;
+    box-sizing: border-box;
+    color: #888;
+    margin: 0 .5mm;
+    flex: 1;
+}
+
+#attackblock span.name {
+    flex: 4;
+}
+
+#attackblock div.attack_flex {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-between;
+}
+
+#attackblock .attack input {
+    background-color: #ccc;
+    color: black;
+    text-align: center;
+    font-size: 3mm;
+    padding: 0;
+    border: none;
+    flex: 1;
+    width: 20%;
+    margin: 0 .5mm;
+}
+
+#attackblock input.desc {
+    font-size: 1.6mm;
+    margin: 0 .5mm 1.5mm .5mm;
+    background-color: #eee;
+    width: 100%;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    text-align: left;
+}
+
+#attackblock input.name {
+    flex: 4;
+}
+
+#attackblock label {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 2mm;
+}
+
+body {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 10px;
+    background-color: #FFFDFA;
+}
+
+#charsheet_5e {
+    height: 100mm;
+    width: 135mm;
+}
+
+.checkbox-holder {
+    position: relative;
+    top: .6mm;
+}
+
+#combat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2mm;
+    width: 40mm;
+}
+
+#deathsave {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border-radius: 3mm;
+    border: .3mm solid black;
+    background-color: transparent;
+    font-size: 0;
+    width: 45%;
+    height: 12mm;
+    padding: 0.5mm;
+}
+
+#deathsave>label {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 2mm;
+    text-align: center;
+}
+
+.deathboxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.deathboxes label  {
+    position: relative;
+    font-size: 2mm;
+    width: 8mm;
+}
+
+.deathboxes label::after  {
+    content: "";
+    position: absolute;
+    right: -24px;
+    top: 45%;
+    width: 4.3mm;
+    height: .3mm;
+    background: gray;
+}
+
+#description {
+    position: relative;
+    border: .3mm solid black;
+    border-radius: 3mm;
+    height: 20mm;
+    
+}
+
+#description label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 2mm;
+}
+
+#description textarea {
+    font-family: 'Shalimar', cursive;
+    font-size: 3.5mm;
+    padding: 1.2mm;
+    box-sizing: border-box;
+    resize: none;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+#description textarea:focus {
+    outline: none;
+}
+
+.dsave {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 1.5mm;
+    height: 1.5mm;
+    margin: 0;
+}
+
+.dsave-cover {
+    position: relative;
+    display: inline-block;
+    height: 1mm;
+    width: 1mm;
+    background-color: white;
+    border-radius: 50%;
+    border: .2mm solid black;
+    top: 0;
+    left: 0;
+}
+
+.dsave:checked ~ .dsave-cover {
+    background-color: #444;
+    box-shadow: 0 0px 1px 1px rgba(255, 255, 255, .8) inset;
+    opacity: 1;
+}
+
+#gear {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+#gearblock {
+    padding: 1mm;
+    border: .3mm solid black;
+    border-radius: 3mm;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+#gearblock label {
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 2mm;
+    margin-top: 1mm;
+}
+
+.gearlist {
+    margin-bottom: 2mm;
+}
+
+.gearlist .gear_underline  {
+    position: relative;
+}
+
+.gearlist input {
+    font-size: 3mm;
+    background-color: transparent;    
+
+}
+
+.gearlist .gear_underline::after{
+    content: "";
+    display: block;
+    position: relative;
+    width: 100%;
+    height: .2mm;
+    left: 0;
+    bottom: 1mm;
+    background: black;
+    z-index: -1;
+}
+
+.grey {
+    color: #99a;
+}
+
+#hd {
+    width: 45%;
+    height: auto;
+    position: relative;
+}
+
+#hd label[for=hdtotal] {
+    position: absolute;
+    top: 0;
+    left: 2mm;
+}
+
+#hd label[for=hdcurr] {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#hdblock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+#hdcurr {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border-radius: 3mm;
+    border: .3mm solid black;
+    background-color: transparent;
+    text-align: center;
+    font-size: 4mm;
+    width: 100%;
+    height: 12mm;
+}
+
+#hdtotal {
+    position: absolute;
+    right: 1mm;
+    top: 0;
+    border: none;
+    padding: 0;
+    width: 5mm;
+    font-size: 3mm;
+}
+
+.hp {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#hpblock {
+    position: relative;
+    display: inline-block;    
+}
+
+#hpcurr {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    border-radius: 5mm 5mm 0 0;
+    border: .3mm solid black;
+    background-color: transparent;
+    text-align: center;
+    font-size: 12mm;
+    width: 100%;
+    padding: 5mm;
+}
+
+#hpcurr:focus {
+    outline: none;
+}
+
+.hp label[for=hpcurr] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 4mm;   
+}
+
+#hpmax {
+    border: .2mm solid black;
+    border-radius: 0 5mm 0 0;
+    font-size: 6mm;
+    width: 10mm;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    text-align: center;
+    z-index: 10;
+}
+
+#hpmax:focus {
+    outline: none;
+}
+
+#hptemp {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 5mm 5mm;
+    border: 0.3mm solid black;
+    background-color: transparent;
+    text-align: center;
+    font-size: 9mm;
+    width: 100%;
+    padding: 2mm 5mm;
+}
+
+#hptemp:focus {
+    outline: none;
+}
+
+.hp label[for=hptemp] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 3mm;   
+}
+
+.hp label[for=hpmax] {
+    position: absolute;
+    top: 5mm;
+    right: 2.5mm;
+    font-size: 2mm;
+}
+
+input[type=text] {
+    font-family: 'Shalimar', cursive;
+    border: none;
+    padding: 0;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+#money {
+    position: relative;
+    left: -2mm;
+}
+
+#money .coin_box {
+    position: relative;
+}
+
+#money .coin_box input {
+    margin-left: 2.3mm;
+    font-size: 2.5mm;
+    width: 7mm;
+    border: .2mm solid black;
+    background: white;
+    z-index: 10;
+    position: relative;
+    height: 3.5mm;
+    border-radius: 1mm;
+    padding: .2mm;
+    text-align: center;
+}
+
+#money .coin_box label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 2.5mm;
+    border: .1mm solid black;
+    border-radius: 50% 0 0 50%;
+    margin: 0;
+    height: 2.5mm;
+    transform: translate(0, -50%);
+    background-color: white;
+}
+
+#name_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2mm;
+}
+
+#name_block span{
+    position: relative;
+    box-sizing: border-box;
+}
+
+#name_block span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2.5mm;
+    width: 42mm;
+    height: .3mm;
+    background: black;
+}
+
+#name_block input[type=text] {
+    border: none;
+    font-size: 6.7mm;
+    width: 45mm;
+    box-sizing: border-box;
+}
+
+#name_block input[type=text]:focus {
+    outline: none;
+}
+
+#name_block label {
+    position: absolute;
+    top: 5.5mm;
+    left: .3mm;
+    font-size: 2.4mm;
+}
+
+#proficiency {
+    margin-bottom: 1.5mm;
+    position: relative;
+}
+
+#proficiency input[type=text]{
+    position: relative;
+    width: 5mm;
+    height: 5mm;
+    border: .3mm solid black;
+    border-radius: 50%;
+    font-size: 3.4mm;
+    text-align: center;
+    z-index: 10;
+}
+
+#proficiency input[type=text]:focus{
+    outline: none;
+}
+
+#proficiency label {
+    position: absolute;
+    right: 0;
+    border: .3mm solid black;
+    border-radius: 0 1mm 1mm 0;
+    font-size: 2mm;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding: .6mm 5.3mm;
+}
+
+.prof {
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    left: -4px;
+    z-index: 10;
+    width: 7px;
+    height: 7px;
+}
+
+.proficiency-cover {
+    position: relative;
+    display: inline-block;
+    height: 1mm;
+    width: 1mm;
+    background-color: transparent;
+    border-radius: 50%;
+    border: .2mm solid black;
+    top: .5mm;
+}
+
+.prof:checked ~ .proficiency-cover {
+    background-color: #444;
+    box-shadow: 0 0px 1px 1px rgba(255, 255, 255, .8) inset;
+    opacity: 1;
+}
+
+#shield {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    width: 11.5mm;
+    height: 13mm;
+}
+
+#shield svg {
+    position: relative;
+    z-index: 0;
+    width: 11.5mm;
+    height: 13mm;
+    top: -1mm;
+}
+
+.skill {
+    position: relative;
+}
+
+.skill input[type=text].skillbox {
+    width: 17%;
+    border: none;
+    font-size: 2.6mm;
+    position: relative;
+    text-align: center;
+}
+
+.skill input[type=text].skillbox::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 7mm;
+    left: 7%;
+    bottom: 3mm;
+    background: black;
+    z-index: -1;
+}
+
+.skill input[type=text].skillbox:focus {
+    outline: none;
+}
+
+.skill label {
+    font-size: 2mm;
+    position: relative;
+    display: inline-block;
+}
+
+.skill label::before {
+    content: "";
+    position: absolute;
+    left: -4mm;
+    bottom: 0mm;
+    width: 3mm;
+    height: 0.2mm;
+    background: black;
+}
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2mm;
+}
+
+#skill_label {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 10px;
+    margin-top: 2%;
+}
+
+.skill_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: .5mm 1mm 0 1.5mm;
+    border: 0.3mm solid black;
+    border-radius: 3mm;
+    font-size: 0;
+    width: 26mm;
+    height: 100%;
+}
+
+#stats_block{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 85mm;
+}
+
+#topstats {
+    margin-bottom: 15px;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#topstats input[type=text] {
+    height: 11mm;
+    width: 12mm;
+    box-sizing: border-box;
+    border-radius: 3mm;
+    border: .3mm solid black;
+    text-align: center;
+    font-size: 8mm;
+}
+
+#topstats input[type=text]:focus {
+    outline: none;
+}
+
+#topstats span label {
+    position: absolute;
+    bottom: -3mm;
+    left: 0;
+    font-size: 8px;
+    text-align: center;
+    width: 100%;
+    line-height: 5px;
+}
+
+#topstats>span {
+    position: relative;
+}
+
