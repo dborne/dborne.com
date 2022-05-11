@@ -20,8 +20,10 @@
         <div id="disp">
             <button class="btn-red" onclick="userAction()">Gimme!</button>
             <div>
-            <div id="weapon_name"></div>
+                <div id="weapon_name"></div>
             </div>
+            <ul id="past_weapons">
+            </ul>
         </div>
         <div id="footer">
            <a href="https://github.com/dborne/rpg/blob/main/generators/weapon_namer.py">see the code</a>
@@ -30,8 +32,19 @@
             const userAction = async() => {
                 const resp = await fetch('https://api.dborne.com/rpg/generator/weapon');
                 const name = await resp.json();
-                const elem = document.querySelector('#weapon_name');
-                elem.innerText = name;
+                const weaponmNameElem = document.querySelector('#weapon_name');
+                const oldName = weaponmNameElem.innerText;
+                weaponmNameElem.innerText = name;
+
+                const oldNameList = document.querySelector('#past_weapons');
+                const newItem = document.createElement('li');
+                const textNode = document.createTextNode(oldName);
+                newItem.appendChild(textNode);
+
+                oldNameList.insertBefore(newItem, oldNameList.children[0]);
+                while (oldNameList.childNodes.length > 8) {
+                    oldNameList.removeChild(oldNameList.lastChild)
+                }
             }
     
         </script>

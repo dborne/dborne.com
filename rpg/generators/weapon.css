@@ -70,6 +70,45 @@ body {
     color: #FAC4B3;
 }
 
+#past_weapons {
+    list-style-type: none;
+    font-family: 'Miltonian', cursive;
+    color: #888;
+}
+
+#past_weapons li:nth-child(1){
+    font-size: 38px;
+    opacity: 0.8;
+}
+#past_weapons li:nth-child(2){
+    font-size: 32px;
+    opacity: 0.7;
+}
+#past_weapons li:nth-child(3){
+    font-size: 29px;
+    opacity: 0.6;
+}
+#past_weapons li:nth-child(4){
+    font-size: 26px;
+    opacity: 0.5;
+}
+#past_weapons li:nth-child(5){
+    font-size: 23px;
+    opacity: 0.4;
+}
+#past_weapons li:nth-child(6){
+    font-size: 21px;
+    opacity: 0.3;
+}
+#past_weapons li:nth-child(7){
+    font-size: 19px;
+    opacity: 0.2;
+}
+#past_weapons li:nth-child(8){
+    font-size: 17px;
+    opacity: 0.1;
+}
+
 #patter {
     width: 100%;
     text-align: center;
@@ -85,4 +124,3 @@ body {
     width: auto;
     border: 3px dashed #ccc;
 }
-*/
