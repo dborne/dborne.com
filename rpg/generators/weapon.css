@@ -31,6 +31,17 @@ body {
     box-shadow: 0 -2px 0 3px #2a1a1a inset, 0 5px 5px rgba(0, 0, 0, 0.17), 0 15px rgba(255, 255, 255, 0.32) inset;
 }
 
+#damage-types {
+    text-align: center;
+    font-size: 20px;
+    color: #735;
+    padding: 5px;
+}
+
+#damage-types span {
+    padding: 0 4px;
+}
+
 #disp {
     padding: 5px, 20px;
     text-align: center;

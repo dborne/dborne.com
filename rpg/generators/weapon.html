@@ -19,6 +19,24 @@
         </div>
         <div id="disp">
             <button class="btn-red" onclick="userAction()">Gimme!</button>
+            <div id="damage-types">
+                <span>
+                    <input type="checkbox" id="bludgeoning">
+                    <label for="bludgeoning">Bludgeoning</label>
+                </span>
+                <span>
+                    <input type="checkbox" id="piercing">
+                    <label for="piercing">Piercing</label>
+                </span>
+                <span>
+                    <input type="checkbox" id="slashing">
+                    <label for="slashing">Slashing</label>
+                </span>
+                <span>
+                    <input type="checkbox" id="magic">
+                    <label for="magic">Magic</label>
+                </span>
+            </div>
             <div>
                 <div id="weapon_name"></div>
             </div>
@@ -30,11 +48,22 @@
         </div>
         <script>
             const userAction = async() => {
-                const resp = await fetch('https://api.dborne.com/rpg/generator/weapon');
-                const name = await resp.json();
+                const b = document.querySelector('#bludgeoning').checked ? 'b' : '';
+                const p = document.querySelector('#piercing').checked ? 'p' : '';
+                const s = document.querySelector('#slashing').checked ? 's' : '';
+                const m = document.querySelector('#magic').checked ? 'm' : '';
+                let dam = b+p+s+m;
+                if (dam === '') {
+                    dam = 'bpsm'
+                }
+                
+                url = 'https://api.dborne.com/rpg/generator/weapon?damage_types=' + dam;
+                const resp = await fetch(url);
+                const names = await resp.json();
+                console.log(names);
                 const weaponmNameElem = document.querySelector('#weapon_name');
                 const oldName = weaponmNameElem.innerText;
-                weaponmNameElem.innerText = name;
+                weaponmNameElem.innerText = names[0];
 
                 const oldNameList = document.querySelector('#past_weapons');
                 const newItem = document.createElement('li');
