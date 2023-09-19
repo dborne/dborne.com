@@ -20,5 +20,5 @@ jobs:
             aws-region: us-west-2
 
         - name: Deploy to S3
-          run: aws s3 sync . ${{ secrets.AWS_S3_BUCKET }} --delete --exclude '.git/*'
+          run: aws s3 sync . ${{ secrets.AWS_S3_BUCKET }} --delete --exclude '.git*'
           
