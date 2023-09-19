@@ -33,8 +33,8 @@
             <span id="abilities">
                 <div class="ability" ng-repeat="(attrib, val) in char.abilities">
                     <label for="{{attrib}}">{{ability_names[attrib]}}</label>
-                    <input type="text" id="{{attrib}}" class="inset" ng-model="char.abilities[attrib]['val']">
-                    <input type="text" id="{{attrib}}-mod" ng-model="char.abilities[attrib]['modstr']">
+                    <input type="text" id="{{attrib}}" class="inset" ng-model="char.abilities[attrib]['modstr']">
+                    <input type="text" id="{{attrib}}-mod" ng-model="char.abilities[attrib]['val']">
                 </div>
             </span>
             <span id="skills">

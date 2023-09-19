@@ -1,9 +1,8 @@
-
 #abilities {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 1.422vw;
+    margin-left: 4mm;
 }
 
 .ability {
@@ -12,26 +11,26 @@
 
 .ability label {
     position: absolute;
-    top: 0.142vw;
-    font-size: 1.280vw;
+    top: .4mm;
+    font-size: 3.6mm;
     text-align: center;
     width: 100%;
 }
 
 .ability input[type=text]{
-    height: 7.822vw;
-    width: 8.533vw;
+    height: 22mm;
+    width: 24mm;
     box-sizing: border-box;
-    border-radius: 1.422vw;
-    border: 0.213vw solid black;
+    border-radius: 4mm;
+    border: .6mm solid black;
     text-align: center;
-    font-size: 4.267vw;
+    font-size: 12mm;
 }
 
 .ability input[type=text].inset {
     height: 33%;
     width: 50%;
-    font-size: 1.564vw;
+    font-size: 4.4mm;
     border-radius: 50%;
     position: absolute;
     bottom: -12%;
@@ -51,22 +50,22 @@
 }
 
 #gear>div {
-    margin: 0 0.711vw 0 1.422vw;   
+    margin: 0 2mm 0 4mm;   
 }
 
 #attackblock{
-    padding: 0.711vw 0.711vw 0 0.711vw;
-    border: 0.213vw solid black;
-    border-radius: 2.133vw;
+    padding: 2mm 2mm 0 2mm;
+    border: 0.6mm solid black;
+    border-radius: 6mm;
 }   
 
 #attackblock span {
     display: inline-block;
     width: 20%;
-    font-size: 0.924vw;
+    font-size: 2.6mm;
     box-sizing: border-box;
     color: #888;
-    margin: 0 0.356vw;
+    margin: 0 1mm;
     flex: 1;
 }
 
@@ -76,7 +75,8 @@
 
 #attackblock div.attack_flex {
     display: flex;
-    flex-direction: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -84,17 +84,17 @@
     background-color: #ccc;
     color: black;
     text-align: center;
-    font-size: 2.133vw;
+    font-size: 6mm;
     padding: 0;
     border: none;
     flex: 1;
     width: 20%;
-    margin: 0 0.356vw;
+    margin: 0 1mm;
 }
 
 #attackblock input.desc {
-    font-size: 1.2vw;
-    margin: .3vw 0.35vw 1vw 0.35vw;
+    font-size: 3.2mm;
+    margin: 1mm 1mm 3mm 1mm;
     background-color: #eee;
     width: 100%;
     font-family: 'Alegreya Sans SC', sans-serif;
@@ -109,7 +109,7 @@
     display: inline-block;
     text-align: center;
     width: 100%;
-    font-size: 1.422vw;
+    font-size: 4mm;
 }
 
 body {
@@ -119,21 +119,21 @@ body {
 }
 
 #charsheet_5e {
-    height: 71.111vw;
-    width: 96.000vw;
+    height: 200mm;
+    width: 270mm;
 }
 
 .checkbox-holder {
     position: relative;
-    top: 0.427vw;
+    top: 1.2mm;
 }
 
 #combat {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 1.422vw;
-    width: 28.444vw;
+    margin-left: 4mm;
+    width: 80mm;
 }
 
 #deathsave {
@@ -142,13 +142,13 @@ body {
     box-sizing: border-box;
     position: relative;
     display: inline-block;
-    border-radius: 2.133vw;
-    border: 0.213vw solid black;
+    border-radius: 6mm;
+    border: .6mm solid black;
     background-color: transparent;
     font-size: 0;
     width: 45%;
-    height: 8.533vw;
-    padding: 0.356vw;
+    height: 24mm;
+    padding: 1mm;
 }
 
 #deathsave>label {
@@ -157,7 +157,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    font-size: 1.422vw;
+    font-size: 4mm;
     text-align: center;
 }
 
@@ -169,25 +169,25 @@ body {
 
 .deathboxes label  {
     position: relative;
-    font-size: 1.422vw;
-    width: 5.689vw;
+    font-size: 3.5mm;
+    width: 14mm;
 }
 
 .deathboxes label::after  {
     content: "";
     position: absolute;
-    right: -4.5vw;
-    top: 45%;
-    width: 3.058vw;
-    height: 0.213vw;
+    right: -11.5mm;
+    top: 50%;
+    width: 8.6mm;
+    height: .6mm;
     background: gray;
 }
 
 #description {
     position: relative;
-    border: 0.213vw solid black;
-    border-radius: 2.133vw;
-    height: 14.222vw;
+    border: .6mm solid black;
+    border-radius: 6mm;
+    height: 40mm;
     
 }
 
@@ -197,16 +197,18 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 1.422vw;
+    font-size: 4mm;
 }
 
 #description textarea {
     font-family: 'Shalimar', cursive;
-    font-size: 2.489vw;
-    padding: 0.853vw;
+    font-size: 7mm;
+    padding: 2.4mm;
     box-sizing: border-box;
     resize: none;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
     border: none;
     background-color: transparent;
 }
@@ -221,26 +223,26 @@ body {
     top: 0;
     left: 0;
     z-index: 10;
-    width: 1.067vw;
-    height: 1.067vw;
+    width: 3mm;
+    height: 3mm;
     margin: 0;
 }
 
 .dsave-cover {
     position: relative;
     display: inline-block;
-    height: 0.711vw;
-    width: 0.711vw;
+    height: 2mm;
+    width: 2mm;
     background-color: white;
     border-radius: 50%;
-    border: 0.142vw solid black;
+    border: .4mm solid black;
     top: 0;
     left: 0;
 }
 
 .dsave:checked ~ .dsave-cover {
     background-color: #444;
-    box-shadow: 0 0 .2vw .2vw rgba(255, 255, 255, .8) inset;
+    box-shadow: 0 0 .5mm .5mm rgba(255, 255, 255, .8) inset;
     opacity: 1;
 }
 
@@ -253,14 +255,13 @@ body {
 }
 
 #gearblock {
-    padding: 0.711vw;
-    border: 0.213vw solid black;
-    border-radius: 2.133vw;    
+    padding: 2mm;
+    border: .6mm solid black;
+    border-radius: 6mm;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-
 }
 
 #gearblock label {
@@ -271,12 +272,12 @@ body {
     left: 0;
     text-align: center;
     width: 100%;
-    font-size: 1.422vw;
-    margin-top: 0.711vw;
+    font-size: 4mm;
+    margin-top: 2mm;
 }
 
 .gearlist {
-    margin-bottom: 1.422vw;
+    margin-bottom: 4mm;
 }
 
 .gearlist .gear_underline  {
@@ -284,7 +285,7 @@ body {
 }
 
 .gearlist input {
-    font-size: 2.133vw;
+    font-size: 6mm;
     background-color: transparent;    
 
 }
@@ -294,9 +295,9 @@ body {
     display: block;
     position: relative;
     width: 100%;
-    height: 0.142vw;
+    height: .4mm;
     left: 0;
-    bottom: 0.711vw;
+    bottom: 2mm;
     background: black;
     z-index: -1;
 }
@@ -314,8 +315,8 @@ body {
 #hd label[for=hdtotal] {
     position: absolute;
     top: 0;
-    left: 1.422vw;
-    font-size: 1.4vw;
+    left: 4mm;
+    font-size: 4mm;
 }
 
 #hd label[for=hdcurr] {
@@ -324,7 +325,7 @@ body {
     bottom: 0;
     width: 100%;
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 4mm;
 }
 
 #hdblock {
@@ -339,30 +340,30 @@ body {
     box-sizing: border-box;
     position: relative;
     display: inline-block;
-    border-radius: 2.133vw;
-    border: 0.213vw solid black;
+    border-radius: 6mm;
+    border: .6mm solid black;
     background-color: transparent;
     text-align: center;
-    font-size: 2.844vw;
+    font-size: 8m;
     width: 100%;
-    height: 8.533vw;
+    height: 24mm;
 }
 
 #hdtotal {
     position: absolute;
-    right: 0.711vw;
+    right: 2mm;
     top: 0;
     border: none;
     padding: 0;
-    width: 3.556vw;
-    font-size: 2.133vw;
+    width: 10mm;
+    font-size: 6mm;
     z-index: 1;
     background: transparent;
 }
 
 .hp {
     position: relative;
-    margin-bottom: 1vw;
+    margin-bottom: 2.8mm;
 }
 
 #hpblock {
@@ -376,13 +377,13 @@ body {
     display: inline-block;
     top: 0;
     left: 0;
-    border-radius: 3.556vw 3.556vw 0 0;
-    border: 0.213vw solid black;
+    border-radius: 10mm 10mm 0 0;
+    border: .6mm solid black;
     background-color: transparent;
     text-align: center;
-    font-size: 8.533vw;
+    font-size: 24mm;
     width: 100%;
-    padding: 3.556vw;
+    padding: 10mm;
 }
 
 .hp label[for=hpcurr] {
@@ -391,14 +392,14 @@ body {
     left: 0;
     text-align: center;
     width: 100%;
-    font-size: 2.844vw;   
+    font-size: 8mm;   
 }
 
 #hpmax {
-    border: 0.142vw solid black;
-    border-radius: 0 3.556vw 0 0;
-    font-size: 4.267vw;
-    width: 7.111vw;
+    border: .4mm solid black;
+    border-radius: 0 10mm 0 0;
+    font-size: 12mm;
+    width: 20mm;
     position: absolute;
     top: 0;
     right: 0;
@@ -413,13 +414,13 @@ body {
     display: inline-block;
     top: 0;
     left: 0;
-    border-radius: 0 0 3.556vw 3.556vw;
-    border: 0.213vw solid black;
+    border-radius: 0 0 10mm 10mm;
+    border: 0.6mm solid black;
     background-color: transparent;
     text-align: center;
-    font-size: 6.400vw;
+    font-size: 18mm;
     width: 100%;
-    padding: 1.422vw 3.556vw;
+    padding: 4mm 10mm;
 }
 
 .hp label[for=hptemp] {
@@ -428,14 +429,14 @@ body {
     left: 0;
     text-align: center;
     width: 100%;
-    font-size: 2.133vw;   
+    font-size: 6mm;
 }
 
 .hp label[for=hpmax] {
     position: absolute;
-    top: 3.556vw;
-    right: 1.778vw;
-    font-size: 1.422vw;
+    top: 10mm;
+    right: 5mm;
+    font-size: 4mm;
 }
 
 input[type=text] {
@@ -450,25 +451,25 @@ input[type=text]:focus {
 
 #money {
     position: relative;
-    left: -2vw;
+    left: -4mm;
 }
 
 #money .coin_box {
     position: relative;
-    margin: .3vw;
+    margin: .8mm;
 }
 
 #money .coin_box input {
-    margin-left: 1.636vw;
-    font-size: 1.778vw;
-    width: 4.978vw;
-    border: 0.1vw solid black;
+    margin-left: 4.6mm;
+    font-size: 5mm;
+    width: 8mm;
+    border: .4mm solid black;
     background: white;
     z-index: 10;
     position: relative;
-    height: 2.5vw;
-    border-radius: 0.711vw;
-    padding: 0.1vw;
+    height: 7mm;
+    border-radius: 2mm;
+    padding: .4mm;
     text-align: center;
 }
 
@@ -476,21 +477,21 @@ input[type=text]:focus {
     position: absolute;
     top: 50%;
     left: 0;
-    width: 1.778vw;
-    border: 0.1vw solid black;
+    width: 5mm;
+    border: .2mm solid black;
     border-radius: 50% 0 0 50%;
     margin: 0;
-    height: 1.778vw;
+    height: 5mm;
     transform: translate(0, -50%);
     background-color: white;
-    font-size: 1.2vw;
+    font-size: 3mm;
 }
 
 #name_block{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 1.422vw;
+    margin-bottom: 4mm;
 }
 
 #name_block span{
@@ -502,38 +503,38 @@ input[type=text]:focus {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 1.778vw;
-    width: 29.867vw;
-    height: 0.213vw;
+    bottom: 5mm;
+    width: 84mm;
+    height: .6mm;
     background: black;
 }
 
 #name_block input[type=text] {
     border: none;
-    font-size: 4.764vw;
-    width: 32.000vw;
+    font-size: 13.4mm;
+    width: 90mm;
     box-sizing: border-box;
 }
 
 #name_block label {
     position: absolute;
-    top: 3.911vw;
-    left: 0.213vw;
-    font-size: 1.707vw;
+    top: 11mm;
+    left: .6mm;
+    font-size: 4.8mm;
 }
 
 #proficiency {
-    margin-bottom: 1.067vw;
+    margin-bottom: 3mm;
     position: relative;
 }
 
 #proficiency input[type=text]{
     position: relative;
-    width: 3.556vw;
-    height: 3.556vw;
-    border: 0.213vw solid black;
+    width: 10mm;
+    height: 10mm;
+    border: .6mm solid black;
     border-radius: 50%;
-    font-size: 2.418vw;
+    font-size: 6.8mm;
     text-align: center;
     z-index: 10;
 }
@@ -541,38 +542,38 @@ input[type=text]:focus {
 #proficiency label {
     position: absolute;
     right: 0;
-    border: 0.213vw solid black;
-    border-radius: 0 0.711vw 0.711vw 0;
-    font-size: 1.422vw;
+    border: .6mm solid black;
+    border-radius: 0 2mm 2mm 0;
+    font-size: 4mm;
     top: 50%;
     transform: translate(0, -50%);
-    padding: 0.427vw 3.769vw;
+    padding: 1.2mm 10.6mm;
 }
 
 .prof {
     position: absolute;
     opacity: 0;
-    top: .25vw;
-    left: -.25vw;
+    top: .7mm;
+    left: -.7mm;
     z-index: 10;
-    width: 1vw;
-    height: 1vw;
+    width: 2.8mm;
+    height: 2.8mm;
 }
 
 .proficiency-cover {
     position: relative;
     display: inline-block;
-    height: 1vw;
-    width: 1vw;
+    height: 2mm;
+    width: 2mm;
     background-color: transparent;
     border-radius: 50%;
-    border: 0.142vw solid black;
-    top: 0.1vw;
+    border: .4mm solid black;
+    top: 1mm;
 }
 
 .prof:checked ~ .proficiency-cover {
     background-color: #444;
-    box-shadow: 0 0 .23vw .23vw rgba(255, 255, 255, .8) inset;
+    box-shadow: 0 0 .6mm .6mm rgba(255, 255, 255, .8) inset;
     opacity: 1;
 }
 
@@ -581,16 +582,16 @@ input[type=text]:focus {
     top: 0;
     left: 0;
     z-index: 0;
-    width: 8.178vw;
-    height: 9.244vw;
+    width: 21mm;
+    height: 26mm;
 }
 
 #shield svg {
     position: relative;
     z-index: 0;
-    width: 8.178vw;
-    height: 9.244vw;
-    top: -0.711vw;
+    width: 21mm;
+    height: 26mm;
+    top: -2mm;
 }
 
 .skill {
@@ -600,7 +601,7 @@ input[type=text]:focus {
 .skill input[type=text].skillbox {
     width: 17%;
     border: none;
-    font-size: 1.849vw;
+    font-size: 5.3mm;
     position: relative;
     text-align: center;
 }
@@ -609,15 +610,15 @@ input[type=text]:focus {
     content: "";
     position: absolute;
     width: 100%;
-    height: 4.978vw;
+    height: 14mm;
     left: 7%;
-    bottom: 2.133vw;
+    bottom: 6mm;
     background: black;
     z-index: -1;
 }
 
 .skill label {
-    font-size: 1.422vw;
+    font-size: 4mm;
     position: relative;
     display: inline-block;
 }
@@ -625,10 +626,10 @@ input[type=text]:focus {
 .skill label::before {
     content: "";
     position: absolute;
-    left: -2.844vw;
-    bottom: 0.000vw;
-    width: 2.133vw;
-    height: 0.142vw;
+    left: -8mm;
+    bottom: 0mm;
+    width: 6mm;
+    height: .4mm;
     background: black;
 }
 
@@ -636,14 +637,14 @@ input[type=text]:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 1.422vw;
+    margin-left: 4mm;
 }
 
 #skill_label {
     display: inline-block;
     text-align: center;
     width: 100%;
-    font-size: 1.4vw;
+    font-size: 4mm;
     margin-top: 2%;
 }
 
@@ -651,11 +652,11 @@ input[type=text]:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 0.356vw 0.711vw 0 1.067vw;
-    border: 0.213vw solid black;
-    border-radius: 2.133vw;
+    padding: 1mm 2mm 0 3mm;
+    border: .6mm solid black;
+    border-radius: 6mm;
     font-size: 0;
-    width: 18.489vw;
+    width: 52mm;
     height: 100%;
 }
 
@@ -664,7 +665,7 @@ input[type=text]:focus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 60.444vw;
+    height: 170mm;
 }
 
 #topstats {
@@ -674,23 +675,23 @@ input[type=text]:focus {
 }
 
 #topstats input[type=text] {
-    height: 7.822vw;
-    width: 8.533vw;
+    height: 22mm;
+    width: 21mm;
     box-sizing: border-box;
-    border-radius: 2.133vw;
-    border: 0.213vw solid black;
+    border-radius: 6mm;
+    border: .6mm solid black;
     text-align: center;
-    font-size: 5.689vw;
+    font-size: 16mm;
 }
 
 #topstats span label {
     position: absolute;
-    bottom: -2.133vw;
+    bottom: -6mm;
     left: 0;
-    font-size: 1.2vw;
+    font-size: 3mm;
     text-align: center;
     width: 100%;
-    line-height: 1.5vw;
+    line-height: 4mm;
 }
 
 #topstats>span {
