@@ -1,0 +1,34 @@
+body {
+    font-family: 'Bangers', cursive;
+    font-size: 30px;
+    background-color: #FAF4E3;
+}
+
+#patter {
+    width: 100%;
+    text-align: center;
+    color: #755;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.question {
+    width: 80%;
+    text-align: center;
+    padding-left: 10%;
+    margin-bottom: 2%;
+}
+
+.question a:link {
+    text-decoration: none;
+    color: #557;
+}
+
+.question a:hover {
+    color: #55F;
+    text-decoration: underline;
+}
+
+.question a:visited {
+    color: #99D;
+}
