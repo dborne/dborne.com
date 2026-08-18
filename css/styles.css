@@ -1,0 +1,143 @@
+/* Brutalist Developer Aesthetic - Drafting Style */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Permanent+Marker&family=Kalam:wght@300;400&family=Patrick+Hand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    background-color: #f7f76e;
+    padding: 0 0.25rem;
+    border: 2px solid #000000;
+    transition: all 0.1s;
+}
+
+a:hover {
+    background-color: #000000;
+    color: #f7f76e;
+}
+
+a:active {
+    transform: translate(2px, 2px);
+}
+
+body {
+    background-color: #f5f3ed;
+    color: #000000;
+    font-family: 'Architects Daughter', monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grid background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(164,221,237,.5) 2px, transparent 1px),
+        linear-gradient(90deg, rgba(164,221,237,.5) 2px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #000000;
+    padding-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.handborder ul,
+.handborder p {
+    border-radius: 9px 0 0 9px/200px 0 0px 200px;
+}
+
+/* Drafting sheet header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #e0e0e0;
+    border-bottom: 4px solid #000000;
+    padding: 1rem 2rem;
+    z-index: 1000;
+}
+
+header .name {
+    display: inline-block;
+    float: right;
+    font-size: 1rem;
+    border: 3px solid #000000;
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff;
+    letter-spacing: 2px;
+}
+
+main {
+    margin-top: 6rem;
+}
+
+nav li {
+    margin-bottom: 0.75rem;
+}
+
+nav li::before {
+    content: '→ ';
+    color: #000000;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 4px solid #000000;
+    padding-left: 1rem;
+}
+
+/* Nested list styling */
+nav ul.nested {
+    border-left: 2px solid #cccccc;
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+nav ul.nested li {
+    margin-bottom: 0.5rem;
+}
+
+nav ul.nested li::before {
+    content: '↳ ';
+    color: #666666;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section.intro p {
+    font-size: 1.3rem;
+    border-left: 8px solid #000000;
+    padding-left: 1rem;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
